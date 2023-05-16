@@ -22,5 +22,41 @@ namespace vatACARS.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.hoppie.nl/acars/system/connect.html")]
+        public string ServerURL {
+            get {
+                return ((string)(this["ServerURL"]));
+            }
+            set {
+                this["ServerURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("jdbjfLBPXdXBnJj4Tx")]
+        public string UserLogonCode {
+            get {
+                return ((string)(this["UserLogonCode"]));
+            }
+            set {
+                this["UserLogonCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("VATPAC1")]
+        public string UserCallsign {
+            get {
+                return ((string)(this["UserCallsign"]));
+            }
+            set {
+                this["UserCallsign"] = value;
+            }
+        }
     }
 }

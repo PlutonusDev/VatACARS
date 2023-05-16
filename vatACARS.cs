@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using vatACARS;
 using vatsys;
 using vatsys.Plugin;
 
@@ -22,6 +24,8 @@ namespace vStripsPlugin
             setupWindowMenu.Item.Click += SetupWindowMenu_Click;
             MMI.AddCustomMenuItem(setupWindowMenu);            
             
+            Tranceiver tranciver = new Tranceiver();
+            _ = Task.Run(() => tranciver.MakeCPDLCMessage("TEST", "POLL", "/data2/t/t/N/t"));
         }
 
         private void SetupWindowMenu_Click(object sender, EventArgs e)

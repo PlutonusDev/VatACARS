@@ -78,6 +78,7 @@
     <Compile Include="SetupWindow.Designer.cs">
       <DependentUpon>SetupWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tranceiver.cs" />
     <Compile Include="vatACARS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

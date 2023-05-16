@@ -1,5 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="vatACARS.Properties" GeneratedClassName="Settings">
   <Profiles />
-  <Settings />
+  <Settings>
+    <Setting Name="ServerURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.hoppie.nl/acars/system/connect.html</Value>
+    </Setting>
+    <Setting Name="UserLogonCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jdbjfLBPXdXBnJj4Tx</Value>
+    </Setting>
+    <Setting Name="UserCallsign" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VATPAC1</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
