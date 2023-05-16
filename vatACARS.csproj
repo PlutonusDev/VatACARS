@@ -62,7 +62,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="vatSys">
-      <HintPath>D:\VatSys\bin\vatSys.exe</HintPath>
+      <HintPath>..\..\..\Documents\vatSys Files\Profiles\Australia\Plugins\</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
