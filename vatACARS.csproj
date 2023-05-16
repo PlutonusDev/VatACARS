@@ -7,8 +7,8 @@
     <ProjectGuid>{59170BAC-129C-4AB8-884D-F583E460AA63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>vStripsPlugin</RootNamespace>
-    <AssemblyName>vStripsPlugin</AssemblyName>
+    <RootNamespace>vatACARS</RootNamespace>
+    <AssemblyName>vatACARS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -67,12 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>designer</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -84,14 +78,10 @@
     <Compile Include="SetupWindow.Designer.cs">
       <DependentUpon>SetupWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="vStripsConnector.cs" />
-    <Compile Include="vStripsPlugin.cs" />
+    <Compile Include="vatACARS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SetupWindow.resx">
       <DependentUpon>SetupWindow.cs</DependentUpon>
     </EmbeddedResource>

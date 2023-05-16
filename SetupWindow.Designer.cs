@@ -57,7 +57,6 @@ namespace vStripsPlugin
             this.storeButton.TabIndex = 0;
             this.storeButton.Text = "Store";
             this.storeButton.UseVisualStyleBackColor = true;
-            this.storeButton.Click += new System.EventHandler(this.storeButton_Click);
             // 
             // cancelButton
             // 
@@ -70,7 +69,6 @@ namespace vStripsPlugin
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // arrivalView
             // 
@@ -83,7 +81,6 @@ namespace vStripsPlugin
             this.arrivalView.Name = "arrivalView";
             this.arrivalView.Size = new System.Drawing.Size(108, 144);
             this.arrivalView.TabIndex = 2;
-            this.arrivalView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.View_AfterCheck);
             // 
             // departureView
             // 
@@ -96,7 +93,6 @@ namespace vStripsPlugin
             this.departureView.Name = "departureView";
             this.departureView.Size = new System.Drawing.Size(108, 144);
             this.departureView.TabIndex = 3;
-            this.departureView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.View_AfterCheck);
             // 
             // insetPanel1
             // 
@@ -142,7 +138,6 @@ namespace vStripsPlugin
             this.textLabel2.TabIndex = 7;
             this.textLabel2.Text = "Arr RWY";
             this.textLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.textLabel2.Click += new System.EventHandler(this.textLabel2_Click);
             // 
             // textLabel3
             // 
@@ -169,7 +164,6 @@ namespace vStripsPlugin
             this.b_restartPlugin.TabIndex = 9;
             this.b_restartPlugin.Text = "Restart";
             this.b_restartPlugin.UseVisualStyleBackColor = true;
-            this.b_restartPlugin.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // l_vStripsHost
             // 
@@ -192,10 +186,9 @@ namespace vStripsPlugin
             this.t_vStripsHostIP.Location = new System.Drawing.Point(123, 233);
             this.t_vStripsHostIP.Name = "t_vStripsHostIP";
             this.t_vStripsHostIP.NumericCharOnly = false;
+            this.t_vStripsHostIP.OctalOnly = false;
             this.t_vStripsHostIP.Size = new System.Drawing.Size(126, 25);
             this.t_vStripsHostIP.TabIndex = 12;
-            this.t_vStripsHostIP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HostIP_onKeyup);
-            this.t_vStripsHostIP.Leave += new System.EventHandler(this.storeHostIPChange);
             // 
             // SetupWindow
             // 
@@ -222,7 +215,6 @@ namespace vStripsPlugin
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "vStrips INTAS Setup";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupWindow_FormClosing);
             this.insetPanel1.ResumeLayout(false);
             this.insetPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
