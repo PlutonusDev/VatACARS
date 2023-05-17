@@ -41,7 +41,7 @@ namespace vatACARS
                 MessageBox.Show(printString, "Received from ACARS Server:");
             } catch
             {
-                throw new Exception("lmao");
+                throw new Exception("");
             }
         }
 
@@ -53,22 +53,20 @@ namespace vatACARS
         public static incomingMessage[] RetrieveCPDLCMessages()
         {
             return new incomingMessage[] {
-                new incomingMessage("QFA123", "LOGON/YSSY"),
-                new incomingMessage("JST123", "HELLO", "stby"),
-                new incomingMessage("ANZ123", "GDAY", "ack")
+                new incomingMessage("QFA123", "POSITION REPORT OVHD LEGAN AT 0047Z/12800 PPOS:3240.0N/09717.9W AT 0047Z/12800 TO CHAAR AT 0051Z NEXT BOBIN WIND 334/13 SAT 1 ETA 0054Z SPEED 233 GND SPEED 283 VERT SPEED -1300FPM HDG 49 TRK 50"),
+                new incomingMessage("JST123", "REQUEST CLIMB TO 390", "stby"),
+                new incomingMessage("ANZ123", "WHEN CAN WE EXPECT HIGHER ALT", "ack")
             };
         }
 
         public class incomingMessage
         {
-            internal string reqId;
             internal string callsign;
             internal string raw;
             internal string state;
 
             public incomingMessage(string inCallsign, string inRaw, string inState = "new")
             {
-                reqId = "";
                 callsign = inCallsign.ToUpper();
                 raw = inRaw.ToUpper();
                 state = inState.ToUpper();

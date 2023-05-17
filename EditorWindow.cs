@@ -1,4 +1,6 @@
-﻿using System.Security.AccessControl;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 using vatsys;
 
@@ -9,7 +11,7 @@ namespace vatACARS
         ListViewGroup groupNew = new ListViewGroup("New");
         ListViewGroup groupStandby = new ListViewGroup("Standby");
         ListViewGroup groupAnswered = new ListViewGroup("Replied");
-        Tranceiver.incomingMessage[] messages = new Tranceiver.incomingMessage[] { };
+        Dictionary<ListViewItem, storedMessage> messages = new Dictionary<ListViewItem, storedMessage>();
 
         public EditorWindow()
         {
@@ -34,10 +36,10 @@ namespace vatACARS
 
         public void AddMessage(Tranceiver.incomingMessage msgInfo)
         {
-            //messages[messages.Length] = msgInfo;
-            var item = lvw_messages.Items.Add(string.Format("  {0} | {1}  ", msgInfo.callsign, msgInfo.raw));
+            ListViewItem item = lvw_messages.Items.Add(string.Format("  {0}: {1}  ", msgInfo.callsign, msgInfo.raw));
+            messages[item] = new storedMessage(item, msgInfo);
 
-            if(msgInfo.state == "NEW")
+            if (msgInfo.state == "NEW")
             {
                 item.Group = groupNew;
                 item.BackColor = Colours.GetColour(Colours.Identities.Warning);
@@ -73,14 +75,29 @@ namespace vatACARS
         {
             if (lvw_messages.FocusedItem != null)
             {
-                lvw_messages.FocusedItem.Group = groupStandby;
-                lvw_messages.FocusedItem.BackColor = Colours.GetColour(Colours.Identities.IdentFlash);
+                var newMsg = messages[lvw_messages.FocusedItem].message;
+                messages.Remove(lvw_messages.FocusedItem);
+                lvw_messages.FocusedItem.Remove();
+                newMsg.state = "STBY";
+                AddMessage(newMsg);
             }
         }
 
         private void btn_reply_Click(object sender, System.EventArgs e)
         {
             MessageBox.Show("OK");
+        }
+
+        private class storedMessage
+        {
+            internal ListViewItem item;
+            internal Tranceiver.incomingMessage message;
+
+            public storedMessage(ListViewItem newItem, Tranceiver.incomingMessage newMessage)
+            {
+                item = newItem;
+                message = newMessage;
+            }
         }
     }
 }

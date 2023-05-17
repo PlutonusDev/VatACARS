@@ -28,7 +28,7 @@ namespace vStripsPlugin
 
             _ = Task.Run(() => updater.CheckForUpdatesAsync());
 
-            acarsWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Editor"));
+            acarsWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Received Messages"));
             acarsWindowMenu.CustomCategoryName = "ACARS";
             acarsWindowMenu.Item.Click += EditorWindowMenu_Click;
             MMI.AddCustomMenuItem(acarsWindowMenu);
