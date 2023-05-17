@@ -79,6 +79,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PDCWindow.cs">
+      <SubType>designer</SubType>
+    </Compile>
+    <Compile Include="PDCWindow.Designer.cs">
+      <DependentUpon>PDCWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResponseBuilder.cs">
       <SubType>designer</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="PDCWindow.resx">
+      <DependentUpon>PDCWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResponseBuilder.resx">
       <DependentUpon>ResponseBuilder.cs</DependentUpon>
     </EmbeddedResource>
