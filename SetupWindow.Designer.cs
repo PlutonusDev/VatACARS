@@ -1,5 +1,5 @@
 ﻿
-namespace vStripsPlugin
+namespace vatACARS
 {
     partial class SetupWindow
     {
@@ -31,19 +31,19 @@ namespace vStripsPlugin
         {
             this.cancelButton = new vatsys.GenericButton();
             this.b_restartPlugin = new vatsys.GenericButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lbl_stationCode = new vatsys.TextLabel();
+            this.tbx_stationCode = new vatsys.TextField();
+            this.lbl_acarsServer = new vatsys.TextLabel();
+            this.lbl_logonCode = new vatsys.TextLabel();
+            this.tbx_acarsServer = new vatsys.TextField();
+            this.tbx_logonCode = new vatsys.TextField();
             this.SuspendLayout();
             // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cancelButton.Location = new System.Drawing.Point(209, 114);
+            this.cancelButton.Location = new System.Drawing.Point(325, 114);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(120, 28);
             this.cancelButton.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -64,86 +64,110 @@ namespace vStripsPlugin
             this.b_restartPlugin.TabIndex = 9;
             this.b_restartPlugin.Text = "Save";
             this.b_restartPlugin.UseVisualStyleBackColor = true;
+            this.b_restartPlugin.Click += new System.EventHandler(this.b_restartPlugin_Click);
             // 
-            // label1
+            // lbl_stationCode
             // 
-            this.label1.Font = new System.Drawing.Font("Terminus (TTF)", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 26);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "ATC Callsign:";
+            this.lbl_stationCode.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbl_stationCode.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_stationCode.HasBorder = false;
+            this.lbl_stationCode.InteractiveText = false;
+            this.lbl_stationCode.Location = new System.Drawing.Point(12, 9);
+            this.lbl_stationCode.Name = "lbl_stationCode";
+            this.lbl_stationCode.Size = new System.Drawing.Size(140, 26);
+            this.lbl_stationCode.TabIndex = 10;
+            this.lbl_stationCode.Text = "Station Code";
+            this.lbl_stationCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // tbx_stationCode
             // 
-            this.textBox1.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.textBox1.Location = new System.Drawing.Point(163, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 26);
-            this.textBox1.TabIndex = 11;
+            this.tbx_stationCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_stationCode.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_stationCode.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.tbx_stationCode.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_stationCode.Location = new System.Drawing.Point(169, 9);
+            this.tbx_stationCode.Name = "tbx_stationCode";
+            this.tbx_stationCode.NumericCharOnly = false;
+            this.tbx_stationCode.OctalOnly = false;
+            this.tbx_stationCode.Size = new System.Drawing.Size(74, 25);
+            this.tbx_stationCode.TabIndex = 11;
             // 
-            // label2
+            // lbl_acarsServer
             // 
-            this.label2.Font = new System.Drawing.Font("Terminus (TTF)", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(12, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 26);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "ACARS Server:";
+            this.lbl_acarsServer.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbl_acarsServer.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_acarsServer.HasBorder = false;
+            this.lbl_acarsServer.InteractiveText = false;
+            this.lbl_acarsServer.Location = new System.Drawing.Point(12, 73);
+            this.lbl_acarsServer.Name = "lbl_acarsServer";
+            this.lbl_acarsServer.Size = new System.Drawing.Size(140, 26);
+            this.lbl_acarsServer.TabIndex = 12;
+            this.lbl_acarsServer.Text = "ACARS Server";
+            this.lbl_acarsServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lbl_logonCode
             // 
-            this.label3.Font = new System.Drawing.Font("Terminus (TTF)", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(12, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 26);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "ACARS Logon:";
+            this.lbl_logonCode.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbl_logonCode.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lbl_logonCode.HasBorder = false;
+            this.lbl_logonCode.InteractiveText = false;
+            this.lbl_logonCode.Location = new System.Drawing.Point(12, 41);
+            this.lbl_logonCode.Name = "lbl_logonCode";
+            this.lbl_logonCode.Size = new System.Drawing.Size(140, 26);
+            this.lbl_logonCode.TabIndex = 13;
+            this.lbl_logonCode.Text = "Logon Code";
+            this.lbl_logonCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // tbx_acarsServer
             // 
-            this.textBox2.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.textBox2.Location = new System.Drawing.Point(164, 73);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 26);
-            this.textBox2.TabIndex = 14;
+            this.tbx_acarsServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_acarsServer.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_acarsServer.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.tbx_acarsServer.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_acarsServer.Location = new System.Drawing.Point(170, 73);
+            this.tbx_acarsServer.Name = "tbx_acarsServer";
+            this.tbx_acarsServer.NumericCharOnly = false;
+            this.tbx_acarsServer.OctalOnly = false;
+            this.tbx_acarsServer.Size = new System.Drawing.Size(276, 25);
+            this.tbx_acarsServer.TabIndex = 14;
             // 
-            // textBox3
+            // tbx_logonCode
             // 
-            this.textBox3.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.textBox3.Location = new System.Drawing.Point(163, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(166, 26);
-            this.textBox3.TabIndex = 15;
+            this.tbx_logonCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_logonCode.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_logonCode.Font = new System.Drawing.Font("Terminus (TTF)", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.tbx_logonCode.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tbx_logonCode.Location = new System.Drawing.Point(169, 41);
+            this.tbx_logonCode.Name = "tbx_logonCode";
+            this.tbx_logonCode.NumericCharOnly = false;
+            this.tbx_logonCode.OctalOnly = false;
+            this.tbx_logonCode.Size = new System.Drawing.Size(276, 25);
+            this.tbx_logonCode.TabIndex = 15;
             // 
             // SetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(341, 155);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(457, 155);
+            this.Controls.Add(this.tbx_logonCode);
+            this.Controls.Add(this.tbx_acarsServer);
+            this.Controls.Add(this.lbl_logonCode);
+            this.Controls.Add(this.lbl_acarsServer);
+            this.Controls.Add(this.tbx_stationCode);
+            this.Controls.Add(this.lbl_stationCode);
             this.Controls.Add(this.b_restartPlugin);
             this.Controls.Add(this.cancelButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HasMinimizeButton = false;
             this.HasSendBackButton = false;
-            this.MaximumSize = new System.Drawing.Size(345, 183);
             this.MiddleClickClose = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(345, 183);
             this.Name = "SetupWindow";
             this.Resizeable = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "vatACARS Setup";
+            this.Shown += new System.EventHandler(this.SetupWindow_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,11 +176,11 @@ namespace vStripsPlugin
         #endregion
         private vatsys.GenericButton cancelButton;
         private vatsys.GenericButton b_restartPlugin;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private vatsys.TextLabel lbl_stationCode;
+        private vatsys.TextField tbx_stationCode;
+        private vatsys.TextLabel lbl_acarsServer;
+        private vatsys.TextLabel lbl_logonCode;
+        private vatsys.TextField tbx_acarsServer;
+        private vatsys.TextField tbx_logonCode;
     }
 }

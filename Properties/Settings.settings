@@ -9,7 +9,7 @@
       <Value Profile="(Default)">jdbjfLBPXdXBnJj4Tx</Value>
     </Setting>
     <Setting Name="UserCallsign" Type="System.String" Scope="User">
-      <Value Profile="(Default)">VATPAC1</Value>
+      <Value Profile="(Default)">YSSY</Value>
     </Setting>
   </Settings>
 </SettingsFile>

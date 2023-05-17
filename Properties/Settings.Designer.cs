@@ -49,7 +49,7 @@ namespace vatACARS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("VATPAC1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("YSSY")]
         public string UserCallsign {
             get {
                 return ((string)(this["UserCallsign"]));

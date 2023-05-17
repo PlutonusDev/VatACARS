@@ -15,24 +15,26 @@ namespace vStripsPlugin
         public string Name { get => "vatACARS"; }
 
         private static SetupWindow setupWindow;
+        private static EditorWindow editorWindow;
 
         private CustomToolStripMenuItem setupWindowMenu;
+        private CustomToolStripMenuItem acarsWindowMenu;
 
         public vatACARS()
         {
-            setupWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Settings, new ToolStripMenuItem("vatACARS Setup"));
+            setupWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Setup"));
+            setupWindowMenu.CustomCategoryName = "ACARS";
             setupWindowMenu.Item.Click += SetupWindowMenu_Click;
-            MMI.AddCustomMenuItem(setupWindowMenu);            
-            
+            MMI.AddCustomMenuItem(setupWindowMenu);
+
+            acarsWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Editor"));
+            acarsWindowMenu.CustomCategoryName = "ACARS";
+            acarsWindowMenu.Item.Click += EditorWindowMenu_Click;
+            MMI.AddCustomMenuItem(acarsWindowMenu);
+
             Tranceiver tranciver = new Tranceiver();
-            _ = Task.Run(() => tranciver.MakeCPDLCMessage("TEST", "POLL", "/data2/t/t/N/t"));
+            //_ = Task.Run(() => tranciver.MakeCPDLCMessage("TEST", "POLL", "/data2/t/t/N/t"));
         }
-
-        private void SetupWindowMenu_Click(object sender, EventArgs e)
-        {
-            DoShowSetupWindow();
-        }
-
         
         public void OnFDRUpdate(FDP2.FDR updated)
         {
@@ -44,9 +46,9 @@ namespace vStripsPlugin
             return;
         }
 
-        public static void ShowSetupWindow()
+        private void SetupWindowMenu_Click(object sender, EventArgs e)
         {
-            MMI.InvokeOnGUI(delegate() { DoShowSetupWindow(); });
+            MMI.InvokeOnGUI(delegate () { DoShowSetupWindow(); });
         }
 
         private static void DoShowSetupWindow()
@@ -57,6 +59,21 @@ namespace vStripsPlugin
                 return;
 
             setupWindow.ShowDialog();
+        }
+
+        private void EditorWindowMenu_Click(object sender, EventArgs e)
+        {
+            MMI.InvokeOnGUI(delegate () { DoShowEditorWindow(); });
+        }
+
+        private static void DoShowEditorWindow()
+        {
+            if (editorWindow == null || editorWindow.IsDisposed)
+                editorWindow = new EditorWindow();
+            else if (editorWindow.Visible)
+                return;
+
+            editorWindow.ShowDialog();
         }
     }
 }

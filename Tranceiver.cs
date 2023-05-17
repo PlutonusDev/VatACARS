@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using vatACARS.Properties;
@@ -13,8 +11,8 @@ namespace vatACARS
     {
 
         private static readonly HttpClient webclient = new HttpClient();
-        private string logonCode = Properties.Settings.Default.UserLogonCode;
-        public string callsign = Properties.Settings.Default.UserCallsign;
+        private string logonCode = Settings.Default.UserLogonCode;
+        public string callsign = Settings.Default.UserCallsign;
 
         public async Task MakeCPDLCMessage(string recipient, string messageType, string packetData, bool _write = true)
         {
