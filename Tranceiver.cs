@@ -61,12 +61,14 @@ namespace vatACARS
 
         public class incomingMessage
         {
+            internal string reqId;
             internal string callsign;
             internal string raw;
             internal string state;
 
             public incomingMessage(string inCallsign, string inRaw, string inState = "new")
             {
+                reqId = "";
                 callsign = inCallsign.ToUpper();
                 raw = inRaw.ToUpper();
                 state = inState.ToUpper();

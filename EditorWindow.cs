@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Security.AccessControl;
+using System.Windows.Forms;
 using vatsys;
 
 namespace vatACARS
@@ -8,6 +9,7 @@ namespace vatACARS
         ListViewGroup groupNew = new ListViewGroup("New");
         ListViewGroup groupStandby = new ListViewGroup("Standby");
         ListViewGroup groupAnswered = new ListViewGroup("Replied");
+        Tranceiver.incomingMessage[] messages = new Tranceiver.incomingMessage[] { };
 
         public EditorWindow()
         {
@@ -17,6 +19,8 @@ namespace vatACARS
 
             lvw_messages.BackColor = Colours.GetColour(Colours.Identities.WindowBackground);
             lvw_messages.ForeColor = Colours.GetColour(Colours.Identities.InteractiveText);
+            scr_cpdlc.ForeColor = Colours.GetColour(Colours.Identities.WindowBackground);
+            scr_cpdlc.BackColor = Colours.GetColour(Colours.Identities.WindowButtonSelected);
 
             lvw_messages.Groups.Add(groupNew);
             lvw_messages.Groups.Add(groupStandby);
@@ -30,7 +34,8 @@ namespace vatACARS
 
         public void AddMessage(Tranceiver.incomingMessage msgInfo)
         {
-            var item = lvw_messages.Items.Add(string.Format("{0} | {1} | {2}", msgInfo.callsign, msgInfo.raw, msgInfo.state));
+            messages[messages.Length] = msgInfo;
+            var item = lvw_messages.Items.Add(string.Format("  {0} | {1} | {2} | [{3}]  ", msgInfo.callsign, msgInfo.raw, msgInfo.state, msgInfo.reqId));
 
             if(msgInfo.state == "NEW")
             {

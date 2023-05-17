@@ -34,6 +34,7 @@
             this.btn_cancel = new vatsys.GenericButton();
             this.insetPanel2 = new vatsys.InsetPanel();
             this.lvw_messages = new vatsys.ListViewEx();
+            this.scr_cpdlc = new VATSYSControls.ScrollBar();
             this.insetPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,8 +54,9 @@
             // 
             // btn_reply
             // 
+            this.btn_reply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_reply.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.btn_reply.Location = new System.Drawing.Point(12, 187);
+            this.btn_reply.Location = new System.Drawing.Point(12, 324);
             this.btn_reply.Name = "btn_reply";
             this.btn_reply.Size = new System.Drawing.Size(122, 28);
             this.btn_reply.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -65,8 +67,9 @@
             // 
             // btn_standby
             // 
+            this.btn_standby.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_standby.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.btn_standby.Location = new System.Drawing.Point(140, 187);
+            this.btn_standby.Location = new System.Drawing.Point(140, 324);
             this.btn_standby.Name = "btn_standby";
             this.btn_standby.Size = new System.Drawing.Size(122, 28);
             this.btn_standby.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,8 +81,9 @@
             // 
             // btn_cancel
             // 
+            this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.btn_cancel.Location = new System.Drawing.Point(399, 187);
+            this.btn_cancel.Location = new System.Drawing.Point(399, 324);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(122, 28);
             this.btn_cancel.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,7 +97,7 @@
             this.insetPanel2.Controls.Add(this.lvw_messages);
             this.insetPanel2.Location = new System.Drawing.Point(12, 34);
             this.insetPanel2.Name = "insetPanel2";
-            this.insetPanel2.Size = new System.Drawing.Size(509, 147);
+            this.insetPanel2.Size = new System.Drawing.Size(482, 284);
             this.insetPanel2.TabIndex = 3;
             // 
             // lvw_messages
@@ -106,31 +110,53 @@
             this.lvw_messages.Location = new System.Drawing.Point(3, 3);
             this.lvw_messages.MultiSelect = false;
             this.lvw_messages.Name = "lvw_messages";
-            this.lvw_messages.Size = new System.Drawing.Size(503, 141);
+            this.lvw_messages.Scrollable = false;
+            this.lvw_messages.Size = new System.Drawing.Size(476, 278);
             this.lvw_messages.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.lvw_messages.TabIndex = 2;
-            this.lvw_messages.TileSize = new System.Drawing.Size(480, 26);
+            this.lvw_messages.TileSize = new System.Drawing.Size(440, 26);
             this.lvw_messages.UseCompatibleStateImageBehavior = false;
             this.lvw_messages.View = System.Windows.Forms.View.Tile;
             this.lvw_messages.SelectedIndexChanged += new System.EventHandler(this.lvw_messages_SelectedIndexChanged);
+            // 
+            // scr_cpdlc
+            // 
+            this.scr_cpdlc.ActualHeight = 10;
+            this.scr_cpdlc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scr_cpdlc.Change = 1;
+            this.scr_cpdlc.Location = new System.Drawing.Point(500, 34);
+            this.scr_cpdlc.Name = "scr_cpdlc";
+            this.scr_cpdlc.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
+            this.scr_cpdlc.PreferredHeight = 10;
+            this.scr_cpdlc.Size = new System.Drawing.Size(20, 284);
+            this.scr_cpdlc.TabIndex = 5;
+            this.scr_cpdlc.Value = 0;
             // 
             // EditorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 235);
+            this.ClientSize = new System.Drawing.Size(533, 372);
             this.ControlBox = false;
+            this.Controls.Add(this.scr_cpdlc);
             this.Controls.Add(this.insetPanel2);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_standby);
             this.Controls.Add(this.btn_reply);
             this.Controls.Add(this.lbl_receivedMsgs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HasSendBackButton = false;
+            this.HideOnClose = true;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(950, 400);
             this.MiddleClickClose = false;
+            this.MinimumSize = new System.Drawing.Size(537, 263);
             this.Name = "EditorWindow";
             this.Resizeable = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ACARS Editor";
+            this.TopMost = true;
             this.insetPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,5 +171,6 @@
         private vatsys.GenericButton btn_cancel;
         private vatsys.InsetPanel insetPanel2;
         private vatsys.ListViewEx lvw_messages;
+        private VATSYSControls.ScrollBar scr_cpdlc;
     }
 }
