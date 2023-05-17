@@ -7,12 +7,13 @@ using vatACARS.Properties;
 
 namespace vatACARS
 {
-    internal class Tranceiver
+    public class Tranceiver
     {
 
         private static readonly HttpClient webclient = new HttpClient();
         private string logonCode = Settings.Default.UserLogonCode;
         public string callsign = Settings.Default.UserCallsign;
+        public object receivedMsgs;
 
         public async Task MakeCPDLCMessage(string recipient, string messageType, string packetData, bool _write = true)
         {
@@ -29,7 +30,7 @@ namespace vatACARS
 
             try
             {
-                if(_write && messageType != "poll")
+                if (_write && messageType != "poll")
                 {
 
                 }
@@ -41,6 +42,34 @@ namespace vatACARS
             } catch
             {
                 throw new Exception("lmao");
+            }
+        }
+
+        public void ProcessCPDLCMessage(string data)
+        {
+            
+        }
+
+        public static incomingMessage[] RetrieveCPDLCMessages()
+        {
+            return new incomingMessage[] {
+                new incomingMessage("QFA123", "LOGON/YSSY"),
+                new incomingMessage("JST123", "HELLO", "stby"),
+                new incomingMessage("ANZ123", "GDAY", "ack")
+            };
+        }
+
+        public class incomingMessage
+        {
+            internal string callsign;
+            internal string raw;
+            internal string state;
+
+            public incomingMessage(string inCallsign, string inRaw, string inState = "new")
+            {
+                callsign = inCallsign.ToUpper();
+                raw = inRaw.ToUpper();
+                state = inState.ToUpper();
             }
         }
     }
