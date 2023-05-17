@@ -71,11 +71,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="vatSys">
-      <HintPath>D:\VatSys\bin\vatSys.exe</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\vatSys\bin\vatSys.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VATSYSControls">
-      <HintPath>D:\VatSys\bin\VATSYSControls.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\vatSys\bin\VATSYSControls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

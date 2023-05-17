@@ -85,7 +85,8 @@ namespace vatACARS
 
         private void btn_reply_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("OK");
+            ResponseBuilder rb = new ResponseBuilder();
+            rb.Show();
         }
 
         private class storedMessage
