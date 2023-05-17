@@ -33,7 +33,7 @@
             this.btn_standby = new vatsys.GenericButton();
             this.btn_cancel = new vatsys.GenericButton();
             this.insetPanel2 = new vatsys.InsetPanel();
-            this.lsv_test = new vatsys.ListViewEx();
+            this.lvw_messages = new vatsys.ListViewEx();
             this.insetPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,7 @@
             this.btn_standby.TabIndex = 3;
             this.btn_standby.Text = "Standby";
             this.btn_standby.UseVisualStyleBackColor = true;
+            this.btn_standby.Click += new System.EventHandler(this.btn_standby_Click);
             // 
             // btn_cancel
             // 
@@ -89,27 +90,29 @@
             // 
             // insetPanel2
             // 
-            this.insetPanel2.Controls.Add(this.lsv_test);
+            this.insetPanel2.Controls.Add(this.lvw_messages);
             this.insetPanel2.Location = new System.Drawing.Point(12, 34);
             this.insetPanel2.Name = "insetPanel2";
             this.insetPanel2.Size = new System.Drawing.Size(509, 147);
             this.insetPanel2.TabIndex = 3;
             // 
-            // lsv_test
+            // lvw_messages
             // 
-            this.lsv_test.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lsv_test.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.lsv_test.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lsv_test.HideSelection = false;
-            this.lsv_test.LabelWrap = false;
-            this.lsv_test.Location = new System.Drawing.Point(3, 3);
-            this.lsv_test.MultiSelect = false;
-            this.lsv_test.Name = "lsv_test";
-            this.lsv_test.Size = new System.Drawing.Size(503, 141);
-            this.lsv_test.TabIndex = 2;
-            this.lsv_test.TileSize = new System.Drawing.Size(480, 26);
-            this.lsv_test.UseCompatibleStateImageBehavior = false;
-            this.lsv_test.View = System.Windows.Forms.View.Tile;
+            this.lvw_messages.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvw_messages.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lvw_messages.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvw_messages.HideSelection = false;
+            this.lvw_messages.LabelWrap = false;
+            this.lvw_messages.Location = new System.Drawing.Point(3, 3);
+            this.lvw_messages.MultiSelect = false;
+            this.lvw_messages.Name = "lvw_messages";
+            this.lvw_messages.Size = new System.Drawing.Size(503, 141);
+            this.lvw_messages.Sorting = System.Windows.Forms.SortOrder.Descending;
+            this.lvw_messages.TabIndex = 2;
+            this.lvw_messages.TileSize = new System.Drawing.Size(480, 26);
+            this.lvw_messages.UseCompatibleStateImageBehavior = false;
+            this.lvw_messages.View = System.Windows.Forms.View.Tile;
+            this.lvw_messages.SelectedIndexChanged += new System.EventHandler(this.lvw_messages_SelectedIndexChanged);
             // 
             // EditorWindow
             // 
@@ -136,18 +139,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private vatsys.TextLabel lbl_receivedMsgs;
-        private System.Windows.Forms.Panel panel1;
-        private vatsys.InsetPanel insetPanel1;
-        private System.Windows.Forms.ColumnHeader chdr_msgs;
-        private vatsys.TreeViewEx lvw_receivedMsgs;
-        private System.Windows.Forms.Button button1;
         private vatsys.GenericButton btn_reply;
         private vatsys.GenericButton btn_standby;
         private vatsys.GenericButton btn_cancel;
         private vatsys.InsetPanel insetPanel2;
-        private vatsys.TreeViewEx treeViewEx1;
-        private vatsys.ListViewEx lsv_test;
+        private vatsys.ListViewEx lvw_messages;
     }
 }
