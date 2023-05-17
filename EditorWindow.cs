@@ -34,8 +34,8 @@ namespace vatACARS
 
         public void AddMessage(Tranceiver.incomingMessage msgInfo)
         {
-            messages[messages.Length] = msgInfo;
-            var item = lvw_messages.Items.Add(string.Format("  {0} | {1} | {2} | [{3}]  ", msgInfo.callsign, msgInfo.raw, msgInfo.state, msgInfo.reqId));
+            //messages[messages.Length] = msgInfo;
+            var item = lvw_messages.Items.Add(string.Format("  {0} | {1}  ", msgInfo.callsign, msgInfo.raw));
 
             if(msgInfo.state == "NEW")
             {
@@ -75,8 +75,12 @@ namespace vatACARS
             {
                 lvw_messages.FocusedItem.Group = groupStandby;
                 lvw_messages.FocusedItem.BackColor = Colours.GetColour(Colours.Identities.IdentFlash);
-                lvw_messages.FocusedItem.Text += " | STBY";
             }
+        }
+
+        private void btn_reply_Click(object sender, System.EventArgs e)
+        {
+            MessageBox.Show("OK");
         }
     }
 }
