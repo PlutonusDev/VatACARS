@@ -54,7 +54,7 @@
             // 
             // btn_time
             // 
-            this.btn_time.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_time.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_time.Location = new System.Drawing.Point(53, 49);
             this.btn_time.Name = "btn_time";
             this.btn_time.Size = new System.Drawing.Size(71, 25);
@@ -122,7 +122,7 @@
             // 
             // btn_etd
             // 
-            this.btn_etd.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_etd.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_etd.Location = new System.Drawing.Point(243, 80);
             this.btn_etd.Name = "btn_etd";
             this.btn_etd.Size = new System.Drawing.Size(71, 25);
@@ -134,7 +134,7 @@
             // 
             // btn_adep
             // 
-            this.btn_adep.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_adep.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_adep.Location = new System.Drawing.Point(166, 80);
             this.btn_adep.Name = "btn_adep";
             this.btn_adep.Size = new System.Drawing.Size(71, 25);
@@ -146,7 +146,7 @@
             // 
             // btn_atype
             // 
-            this.btn_atype.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_atype.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_atype.Location = new System.Drawing.Point(89, 80);
             this.btn_atype.Name = "btn_atype";
             this.btn_atype.Size = new System.Drawing.Size(71, 25);
@@ -158,7 +158,7 @@
             // 
             // btn_callsign
             // 
-            this.btn_callsign.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_callsign.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_callsign.Location = new System.Drawing.Point(12, 80);
             this.btn_callsign.Name = "btn_callsign";
             this.btn_callsign.Size = new System.Drawing.Size(71, 25);
@@ -170,7 +170,7 @@
             // 
             // btn_ades
             // 
-            this.btn_ades.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_ades.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_ades.Location = new System.Drawing.Point(123, 114);
             this.btn_ades.Name = "btn_ades";
             this.btn_ades.Size = new System.Drawing.Size(71, 25);
@@ -196,7 +196,7 @@
             // 
             // btn_sid
             // 
-            this.btn_sid.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_sid.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_sid.Location = new System.Drawing.Point(244, 114);
             this.btn_sid.Name = "btn_sid";
             this.btn_sid.Size = new System.Drawing.Size(71, 25);
@@ -233,7 +233,7 @@
             // 
             // btn_route
             // 
-            this.btn_route.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_route.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_route.Location = new System.Drawing.Point(73, 145);
             this.btn_route.Name = "btn_route";
             this.btn_route.Size = new System.Drawing.Size(71, 25);
@@ -245,7 +245,7 @@
             // 
             // btn_alt
             // 
-            this.btn_alt.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_alt.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_alt.Location = new System.Drawing.Point(183, 176);
             this.btn_alt.Name = "btn_alt";
             this.btn_alt.Size = new System.Drawing.Size(71, 25);
@@ -285,7 +285,7 @@
             // 
             // btn_freq
             // 
-            this.btn_freq.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_freq.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_freq.Location = new System.Drawing.Point(103, 207);
             this.btn_freq.Name = "btn_freq";
             this.btn_freq.Size = new System.Drawing.Size(71, 25);
@@ -311,7 +311,7 @@
             // 
             // btn_rbfreq
             // 
-            this.btn_rbfreq.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_rbfreq.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_rbfreq.Location = new System.Drawing.Point(483, 238);
             this.btn_rbfreq.Name = "btn_rbfreq";
             this.btn_rbfreq.Size = new System.Drawing.Size(71, 25);
@@ -323,7 +323,7 @@
             // 
             // btn_send
             // 
-            this.btn_send.Font = new System.Drawing.Font("Terminus (TTF)", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btn_send.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.btn_send.Location = new System.Drawing.Point(236, 288);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(94, 33);

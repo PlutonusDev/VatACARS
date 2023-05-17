@@ -2,6 +2,7 @@
 using vatACARS.Properties;
 using System.Linq;
 using System.Windows.Forms;
+using System.Media;
 
 namespace vatACARS
 {
@@ -45,7 +46,9 @@ namespace vatACARS
 
         private void b_restartPlugin_Click(object sender, System.EventArgs e)
         {
-            
+            SoundPlayer plr = new SoundPlayer();
+            plr.SoundLocation = "C:\\Program Files (x86)\\vatSys\\wav\\P1.wav";
+            plr.Play();
         }
     }
 }

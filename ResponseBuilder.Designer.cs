@@ -352,6 +352,7 @@
             this.btn_suspend.TabIndex = 21;
             this.btn_suspend.Text = "Suspend";
             this.btn_suspend.UseVisualStyleBackColor = true;
+            this.btn_suspend.Click += new System.EventHandler(this.btn_suspend_Click);
             // 
             // btn_restore
             // 

@@ -161,5 +161,11 @@ namespace vatACARS
                 lvw_messageSelector.SetScrollPosVert(scr_messageSelector.PercentageValue);
             });
         }
+
+        private void btn_suspend_Click(object sender, System.EventArgs e)
+        {
+            PDCWindow pw = new PDCWindow();
+            pw.Show();
+        }
     }
 }
