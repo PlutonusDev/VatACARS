@@ -71,14 +71,20 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="vatSys">
-      <HintPath>..\..\..\..\..\Program Files (x86)\vatSys\bin\vatSys.exe</HintPath>
+      <HintPath>D:\VatSys\bin\vatSys.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VATSYSControls">
-      <HintPath>..\..\..\..\..\Program Files (x86)\vatSys\bin\VATSYSControls.dll</HintPath>
+      <HintPath>D:\VatSys\bin\VATSYSControls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResponseBuilder.cs">
+      <SubType>designer</SubType>
+    </Compile>
+    <Compile Include="ResponseBuilder.Designer.cs">
+      <DependentUpon>ResponseBuilder.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorWindow.cs">
       <SubType>designer</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ResponseBuilder.resx">
+      <DependentUpon>ResponseBuilder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditorWindow.resx">
       <DependentUpon>EditorWindow.cs</DependentUpon>
     </EmbeddedResource>
