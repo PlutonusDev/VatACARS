@@ -70,14 +70,14 @@ namespace vStripsPlugin
             MMI.InvokeOnGUI(delegate () { DoShowEditorWindow(); });
         }
 
-        private static void DoShowEditorWindow()
+        private void DoShowEditorWindow()
         {
             if (editorWindow == null || editorWindow.IsDisposed)
                 editorWindow = new EditorWindow();
             else if (editorWindow.Visible)
                 return;
 
-            editorWindow.ShowDialog();
+            editorWindow.Show();
         }
     }
 }
