@@ -29,14 +29,6 @@ namespace vatACARS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("SQUAWK [SSR]");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("ROUTE [ROUTE]");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("PDC [TIMESTAMP]");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("ONLY READBACK SID, SQUAWK CODE, AND BAY NO. ON [FREQUENCY]");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("DEP FREQ [FREQUENCY]");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("CLIMB VIA SID TO [LEVEL]");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("CLEARED TO [ADES] VIA [SID] DEP [TEXT]");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("[CALLSIGN] [ATYPE] [ADEP] [ETD]");
             this.cancelButton = new vatsys.GenericButton();
             this.btn_level = new vatsys.GenericButton();
             this.lbl_stationCode = new vatsys.TextLabel();
@@ -54,7 +46,6 @@ namespace vatACARS
             this.btn_route = new vatsys.GenericButton();
             this.btn_divert = new vatsys.GenericButton();
             this.btn_cross = new vatsys.GenericButton();
-            this.listView1 = new vatsys.ListViewEx();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -272,35 +263,11 @@ namespace vatACARS
             this.btn_cross.Text = "Cross";
             this.btn_cross.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listView1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
-            this.listView1.Location = new System.Drawing.Point(12, 46);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(624, 160);
-            this.listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
-            this.listView1.TabIndex = 30;
-            this.listView1.TileSize = new System.Drawing.Size(624, 16);
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Tile;
-            // 
             // MessageBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 536);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.btn_cross);
             this.Controls.Add(this.btn_divert);
             this.Controls.Add(this.btn_route);
@@ -352,6 +319,5 @@ namespace vatACARS
         private vatsys.GenericButton btn_route;
         private vatsys.GenericButton btn_divert;
         private vatsys.GenericButton btn_cross;
-        private vatsys.ListViewEx listView1;
     }
 }
