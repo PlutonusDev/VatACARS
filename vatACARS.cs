@@ -22,17 +22,21 @@ namespace vStripsPlugin
 
         public vatACARS()
         {
-            setupWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Setup"));
-            setupWindowMenu.CustomCategoryName = "ACARS";
-            setupWindowMenu.Item.Click += SetupWindowMenu_Click;
-            MMI.AddCustomMenuItem(setupWindowMenu);
+            Tranceiver tranciver = new Tranceiver();
+            Updater updater = new Updater();
+
+            _ = Task.Run(() => updater.CheckForUpdatesAsync());
 
             acarsWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Editor"));
             acarsWindowMenu.CustomCategoryName = "ACARS";
             acarsWindowMenu.Item.Click += EditorWindowMenu_Click;
             MMI.AddCustomMenuItem(acarsWindowMenu);
 
-            Tranceiver tranciver = new Tranceiver();
+            setupWindowMenu = new CustomToolStripMenuItem(CustomToolStripMenuItemWindowType.Main, CustomToolStripMenuItemCategory.Custom, new ToolStripMenuItem("Setup"));
+            setupWindowMenu.CustomCategoryName = "ACARS";
+            setupWindowMenu.Item.Click += SetupWindowMenu_Click;
+            MMI.AddCustomMenuItem(setupWindowMenu);
+
             //_ = Task.Run(() => tranciver.MakeCPDLCMessage("TEST", "POLL", "/data2/t/t/N/t"));
         }
         
