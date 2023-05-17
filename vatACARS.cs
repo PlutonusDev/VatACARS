@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using vatACARS;
+using vatACARS.Properties;
 using vatsys;
 using vatsys.Plugin;
 
@@ -37,7 +38,7 @@ namespace vStripsPlugin
             setupWindowMenu.Item.Click += SetupWindowMenu_Click;
             MMI.AddCustomMenuItem(setupWindowMenu);
 
-            //_ = Task.Run(() => tranciver.MakeCPDLCMessage("TEST", "POLL", "/data2/t/t/N/t"));
+            _ = Task.Run(() => tranciver.MakeCPDLCMessage("YSCB", "POLL", null));
         }
         
         public void OnFDRUpdate(FDP2.FDR updated)
