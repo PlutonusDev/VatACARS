@@ -32,23 +32,30 @@ namespace vatACARS
 
         private void SetupWindow_Shown(object sender, System.EventArgs e)
         {
-            if (Network.Me.Callsign.Length > 0 && Network.Me.Callsign.EndsWith("_CTR"))
+            if (Network.Me.Callsign.Length > 0)
             {
-                callsign = Network.Me.Callsign.Split('-')[0] == "ML" ? "YMMM" : Network.Me.Callsign.Split('-')[0] == "BN" ? "YBBB" : "";
+                if (Network.Me.Callsign.EndsWith("_FSS"))
+                {
+                    callsign = Network.Me.Callsign.Split('-')[0] == "ML" ? "YMMM" : Network.Me.Callsign.Split('-')[0] == "BN" ? "YBBB" : "";
+                }
+                else if (Network.Me.Callsign.EndsWith("_CTR"))
+                {
+                    string suffix = Network.Me.Callsign.Split('-')[1].Substring(0, 3);
+                    callsign = "Y" + suffix;
+                }
+                else
+                {
+                    callsign = Airspace2.FindClosestAirport(Network.Me.Position).ICAOName;
+                }
             }
             else
             {
-                callsign = Airspace2.FindClosestAirport(Network.Me.Position).ICAOName;
+                callsign = "";
             }
+
 
             tbx_stationCode.Text = callsign;
         }
 
-        private void b_restartPlugin_Click(object sender, System.EventArgs e)
-        {
-            SoundPlayer plr = new SoundPlayer();
-            plr.SoundLocation = "C:\\Program Files (x86)\\vatSys\\wav\\P1.wav";
-            plr.Play();
-        }
     }
 }
