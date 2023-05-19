@@ -3,6 +3,9 @@ using vatACARS.Properties;
 using System.Linq;
 using System.Windows.Forms;
 using System.Media;
+using System.Runtime.CompilerServices;
+using System.IO;
+using System.Reflection;
 
 namespace vatACARS
 {
@@ -32,30 +35,52 @@ namespace vatACARS
 
         private void SetupWindow_Shown(object sender, System.EventArgs e)
         {
-            if (Network.Me.Callsign.Length > 0)
+            if (Network.IsConnected)
             {
-                if (Network.Me.Callsign.EndsWith("_FSS"))
+                if (!Network.Me.Callsign.EndsWith("_FSS") && !Network.Me.Callsign.EndsWith("_CTR"))
                 {
-                    callsign = Network.Me.Callsign.Split('-')[0] == "ML" ? "YMMM" : Network.Me.Callsign.Split('-')[0] == "BN" ? "YBBB" : "";
+                    callsign = Airspace2.FindClosestAirport(Network.Me.Position)?.ICAOName;
                 }
-                else if (Network.Me.Callsign.EndsWith("_CTR"))
+                else if (Network.Me.Callsign.EndsWith("_TWR") || Network.Me.Callsign.EndsWith("_DEL") || Network.Me.Callsign.EndsWith("_GND"))
                 {
-                    string suffix = Network.Me.Callsign.Split('-')[1].Substring(0, 3);
-                    callsign = "Y" + suffix;
+                    callsign = Airspace2.FindClosestAirport(Network.Me.Position)?.ICAOName;
                 }
                 else
                 {
-                    callsign = Airspace2.FindClosestAirport(Network.Me.Position).ICAOName;
+                    callsign = GetICAOFromCSV(Network.Me.Callsign);
                 }
+
+                tbx_stationCode.Text = string.IsNullOrEmpty(callsign) ? "" : callsign;
             }
             else
             {
-                callsign = "";
+                MessageBox.Show("Please connect before setting up.", "Connection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+        }
+
+        private string GetICAOFromCSV(string callsign)
+        {
+            string csvFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "firs.csv");
+
+            string callsignWithoutSuffix = callsign.Split('_')[0];
+
+            var lines = File.ReadAllLines(csvFilePath);
+
+            var line = lines.FirstOrDefault(l => l.StartsWith(callsignWithoutSuffix + ","));
+
+            if (line != null)
+            {
+                var parts = line.Split(',');
+                if (parts.Length >= 2)
+                {
+                    return parts[1];
+                }
             }
 
-
-            tbx_stationCode.Text = callsign;
+            return "";
         }
+
 
     }
 }
