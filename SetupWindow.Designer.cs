@@ -64,7 +64,6 @@ namespace vatACARS
             this.b_restartPlugin.TabIndex = 9;
             this.b_restartPlugin.Text = "Save";
             this.b_restartPlugin.UseVisualStyleBackColor = true;
-            this.b_restartPlugin.Click += new System.EventHandler(this.b_restartPlugin_Click);
             // 
             // lbl_stationCode
             // 

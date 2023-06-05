@@ -35,14 +35,13 @@ namespace vatACARS
             lvw_messages.Groups.Add(groupStandby);
             lvw_messages.Groups.Add(groupAnswered);
 
-            AddMessageSelectorItem("REQUEST POSITION REPORT");
-            AddMessageSelectorItem("SQUAWK [code]");
-            AddMessageSelectorItem("AT [pos] CONTACT [unit name] [freq]");
-            AddMessageSelectorItem("CONTACT [BRISBANE CTR] [124.95]");
-            AddMessageSelectorItem("AT [pos] MONITOR [unit name] [freq]");
-            AddMessageSelectorItem("END SERVICE");
-            AddMessageSelectorItem("REPORT BACK ON ROUTE");
-            AddMessageSelectorItem("CLIMB TO [lev]");
+            AddMessageSelectorItem("CLIMB TO AND MAINTAIN [LEVEL]");
+            AddMessageSelectorItem("DESCEND TO AND MAINTAIN [LEVEL]");
+            AddMessageSelectorItem("PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("MAINTAIN [SPEED] OR GREATER");
+            AddMessageSelectorItem("MAINTAIN [SPEED] OR LESS");
+            AddMessageSelectorItem("CONTACT [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("REQUEST RECEIVED RESPONSE WILL BE VIA VOICE");
 
             AddMessage(Tranceiver.RetrieveCPDLCMessages()[0]); 
         }
@@ -153,6 +152,147 @@ namespace vatACARS
             scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
             scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
         }
+        private void btn_route_Click(object sender, System.EventArgs e)
+        {
+            lvw_messageSelector.Items.Clear();
+            AddMessageSelectorItem("PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("WHEN ABLE PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [TIME] PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [POSITION] PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [LEVEL] PROCEED DIRECT TO [POSITION]");
+            AddMessageSelectorItem("CLEARED TO [POSITION] VIA [ROUTE]");
+            AddMessageSelectorItem("CLEARED [ROUTE]");
+            AddMessageSelectorItem("CLEARED [STAR] [TEXT]");
+            AddMessageSelectorItem("CLEARED TO DEVIATE UP TO [DISTANCE] [DIRECTION] OF ROUTE");
+            AddMessageSelectorItem("AT [POSITION] CLEARED [ROUTE]");
+            AddMessageSelectorItem("AT [POSITION] CLEARED [STAR] [TEXT]");
+            AddMessageSelectorItem("HOLD AT [POSITION] MAINTAIN [LEVEL] INBOUND TRACK [DEGREES] [DIRECTION] TURN LEG TIME [TIME]");
+            AddMessageSelectorItem("HOLD AT [POSITION] AS PUBLISHED MAINTAIN [LEVEL]");
+            AddMessageSelectorItem("TURN [DIRECTION] HEADING [DEGREES]");
+            AddMessageSelectorItem("TURN [DIRECTION] GROUND TRACK [DEGREES]");
+            AddMessageSelectorItem("FLY PRESENT HEADING");
+            AddMessageSelectorItem("AT [POSITION] FLY HEADING [DEGREES]");
+            AddMessageSelectorItem("IMMEDIATELY TURN [DIRECTION] HEADING [DEGREES]");
+            AddMessageSelectorItem("EXPECT [ROUTE]");
+            AddMessageSelectorItem("AT [POSITION] EXPECT [ROUTE]");
+            AddMessageSelectorItem("EXPECT DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [POSITION] EXPECT DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [TIME] EXPECT DIRECT TO [POSITION]");
+            AddMessageSelectorItem("AT [LEVEL] EXPECT DIRECT TO [POSITION]");
+            AddMessageSelectorItem("EXPECT FURTHER CLEARANCE AT [TIME]");
+            AddMessageSelectorItem("EXPECT [STAR] [TEXT]");
+
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+        }
+
+        private void btn_cross_Click(object sender, System.EventArgs e)
+        {
+            lvw_messageSelector.Items.Clear();
+            AddMessageSelectorItem("CROSS [POSITION] AT [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR ABOVE [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR BELOW [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT AND MAINTAIN [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] BETWEEN [LEVEL] AND [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT [TIME]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR BEFORE [TIME]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR AFTER [TIME]");
+            AddMessageSelectorItem("CROSS [POSITION] BETWEEN [TIME] AND [TIME]");
+            AddMessageSelectorItem("CROSS [POSITION] AT [SPEED]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR LESS THAN [SPEED]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR GREATER THAN [SPEED]");
+            AddMessageSelectorItem("CROSS [POSITION] AT [TIME] AT [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR BEFORE [TIME] AT [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT OR AFTER [TIME] AT [LEVEL]");
+            AddMessageSelectorItem("CROSS [POSITION] AT AND MAINTAIN [LEVEL] AT [SPEED]");
+            AddMessageSelectorItem("AT [TIME] CROSS [POSITION] AT AND MAINTAIN [LEVEL]");
+            AddMessageSelectorItem("AT [TIME] CROSS [POSITION] AT AND MAINTAIN [LEVEL] AT [SPEED]");
+            AddMessageSelectorItem("EXPECT TO CROSS [POSITION] AT [LEVEL]");
+            AddMessageSelectorItem("EXPECT TO CROSS [POSITION] AT OR ABOVE [LEVEL]");
+            AddMessageSelectorItem("EXPECT TO CROSS [POSITION] AT OR BELOW [LEVEL]");
+            AddMessageSelectorItem("EXPECT TO CROSS [POSITION] AT AND MAINTAIN [LEVEL]");
+
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+
+        }
+
+        private void btn_speed_Click(object sender, System.EventArgs e)
+        {
+            lvw_messageSelector.Items.Clear();
+            AddMessageSelectorItem("MAINTAIN [SPEED]");
+            AddMessageSelectorItem("MAINTAIN PRESENT SPEED");
+            AddMessageSelectorItem("MAINTAIN [SPEED] OR GREATER");
+            AddMessageSelectorItem("MAINTAIN [SPEED] OR LESS");
+            AddMessageSelectorItem("MAINTAIN [SPEED] TO [SPEED]");
+            AddMessageSelectorItem("INCREASE SPEED TO [SPEED]");
+            AddMessageSelectorItem("INCREASE SPEED TO [SPEED] OR GREATER");
+            AddMessageSelectorItem("REDUCE SPEED TO [SPEED]");
+            AddMessageSelectorItem("REDUCE SPEED TO [SPEED] OR LESS");
+            AddMessageSelectorItem("DO NOT EXCEED [SPEED]");
+            AddMessageSelectorItem("RESUME NORMAL SPEED");
+            AddMessageSelectorItem("NO SPEED RESTRICTION");
+            AddMessageSelectorItem("AT [TIME] EXPECT [SPEED]");
+            AddMessageSelectorItem("AT [POSITION] EXPECT [SPEED]");
+            AddMessageSelectorItem("AT [LEVEL] EXPECT [SPEED]");
+            AddMessageSelectorItem("AT [TIME] EXPECT [SPEED] TO [SPEED]");
+            AddMessageSelectorItem("AT [POSITION] EXPECT [SPEED] TO [SPEED]");
+            AddMessageSelectorItem("AT [LEVEL] EXPECT [SPEED] TO [SPEED]");
+            AddMessageSelectorItem("WHEN CAN YOU ACCEPT [SPEED]");
+
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+        }
+
+        private void btn_comm_Click(object sender, System.EventArgs e)
+        {
+            lvw_messageSelector.Items.Clear();
+            AddMessageSelectorItem("CONTACT [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("AT [POSITION] CONTACT [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("AT [TIME] CONTACT [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("MONITOR [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("AT [POSITION] MONITOR [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("AT [TIME] MONITOR [UNIT] [FREQUENCY]");
+            AddMessageSelectorItem("SQUAWK [SSR]");
+            AddMessageSelectorItem("STOP SQUAWK");
+            AddMessageSelectorItem("SQUAWK ALTITUDE");
+            AddMessageSelectorItem("STOP SQUAWK ALTITUDE");
+            AddMessageSelectorItem("SQUAWK IDENT");
+            AddMessageSelectorItem("ALTIMETER [QNH]");
+            AddMessageSelectorItem("IDENTIFICATION");
+            AddMessageSelectorItem("IDENTIFIED");
+            AddMessageSelectorItem("IDENTIFICATION TERMINATED");
+            AddMessageSelectorItem("TRANSMIT ADS-B IDENT");
+            AddMessageSelectorItem("CONFIRM ADS-C EMERGENCY");
+            AddMessageSelectorItem("CHECK STUCK MICROPHONE [FREQUENCY]");
+            AddMessageSelectorItem("ATIS [CODE]");
+
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+        }
+
+        private void btn_misc_Click(object sender, System.EventArgs e)
+        {
+            lvw_messageSelector.Items.Clear();
+            AddMessageSelectorItem("REQUEST RECEIVED RESPONSE WILL BE VIA VOICE");
+            AddMessageSelectorItem("WHEN READY");
+            AddMessageSelectorItem("THEN");
+            AddMessageSelectorItem("DUE TO TRAFFIC");
+            AddMessageSelectorItem("DUE TO AIRSPACE RESTRICTION");
+            AddMessageSelectorItem("DISREGARD");
+            AddMessageSelectorItem("MAINTAIN OWN SEPARATION AND VMC");
+            AddMessageSelectorItem("AT PILOTS DISCRETION");
+            AddMessageSelectorItem("STANDBY");
+            AddMessageSelectorItem("UNABLE");
+            AddMessageSelectorItem("ROGER");
+            AddMessageSelectorItem("AFFIRM");
+            AddMessageSelectorItem("NEGATIVE");
+            AddMessageSelectorItem("ROGER MAYDAY");
+            AddMessageSelectorItem("ROGER PAN");
+
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+        }
 
         private async void scr_messageSelector_Scroll(object sender, System.EventArgs e)
         {
@@ -167,5 +307,6 @@ namespace vatACARS
             PDCWindow pw = new PDCWindow();
             pw.Show();
         }
+
     }
 }
