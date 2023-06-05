@@ -231,6 +231,7 @@
             this.btn_cross.TabIndex = 11;
             this.btn_cross.Text = "CROSS";
             this.btn_cross.UseVisualStyleBackColor = true;
+            this.btn_cross.Click += new System.EventHandler(this.btn_cross_Click);
             // 
             // btn_transfr
             // 
@@ -255,6 +256,7 @@
             this.btn_route.TabIndex = 13;
             this.btn_route.Text = "ROUTE";
             this.btn_route.UseVisualStyleBackColor = true;
+            this.btn_route.Click += new System.EventHandler(this.btn_route_Click);
             // 
             // btn_wx
             // 
@@ -279,6 +281,7 @@
             this.btn_comm.TabIndex = 19;
             this.btn_comm.Text = "COMM";
             this.btn_comm.UseVisualStyleBackColor = true;
+            this.btn_comm.Click += new System.EventHandler(this.btn_comm_Click);
             // 
             // btn_speed
             // 
@@ -291,6 +294,7 @@
             this.btn_speed.TabIndex = 18;
             this.btn_speed.Text = "SPEED";
             this.btn_speed.UseVisualStyleBackColor = true;
+            this.btn_speed.Click += new System.EventHandler(this.btn_speed_Click);
             // 
             // btn_cfm
             // 
@@ -315,6 +319,7 @@
             this.btn_misc.TabIndex = 16;
             this.btn_misc.Text = "MISC";
             this.btn_misc.UseVisualStyleBackColor = true;
+            this.btn_misc.Click += new System.EventHandler(this.btn_misc_Click);
             // 
             // btn_emerg
             // 
