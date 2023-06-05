@@ -99,7 +99,9 @@ namespace vatACARS
 
         private void btn_reply_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("OK");
+            lvw_messageSelector.Items.Clear();
+            lvw_freetextInput.Clear();
+            lvw_messages.Clear();
         }
 
         private void btn_level_Click(object sender, System.EventArgs e)
