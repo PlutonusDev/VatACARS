@@ -199,49 +199,54 @@ namespace vatACARS
 
 
         private void UpdateListBasedOnGroup(int group)
+     {
+        string assemblyPath = Assembly.GetExecutingAssembly().Location;
+        string groupsFilePath = Path.Combine(Path.GetDirectoryName(assemblyPath), "groups.csv");
+        lvw_messageSelector.Items.Clear();
+
+        List<string> messageElements = new List<string>();
+
+        try
         {
-            string assemblyPath = Assembly.GetExecutingAssembly().Location;
-            string groupsFilePath = Path.Combine(Path.GetDirectoryName(assemblyPath), "groups.csv");
-            lvw_messageSelector.Items.Clear();
+            string[] groupsLines = File.ReadAllLines(groupsFilePath);
 
-            List<string> messageElements = new List<string>();
-
-            try
+            for (int i = 1; i < groupsLines.Length; i++) // Start from index 1 to skip the header line
             {
-                string[] groupsLines = File.ReadAllLines(groupsFilePath);
+                string line = groupsLines[i];
+                string[] values = line.Split(',');
 
-                for (int i = 1; i < groupsLines.Length; i++) // Start from index 1 to skip the header line
+                if (values.Length >= 2)
                 {
-                    string line = groupsLines[i];
-                    string[] values = line.Split(',');
+                    string refNumber = values[0].Trim();
+                    string groupNumber = values[1].Trim();
 
-                    if (values.Length >= 2)
+                    if (groupNumber == group.ToString()) // Check if the group number matches the desired group value
                     {
-                        string refNumber = values[0].Trim();
-                        string groupNumber = values[1].Trim();
+                        string messageElement = GetMessageElementFromUplinks(refNumber);
 
-                        if (groupNumber == group.ToString()) // Check if the group number matches the desired group value
+                        if (!string.IsNullOrEmpty(messageElement))
                         {
-                            string messageElement = GetMessageElementFromUplinks(refNumber);
-
-                            if (!string.IsNullOrEmpty(messageElement))
-                            {
-                                messageElements.Add(messageElement);
-                            }
+                            messageElements.Add(messageElement);
                         }
                     }
                 }
-
-                foreach (string messageElement in messageElements)
-                {
-                    AddMessageSelectorItem(messageElement);
-                }
             }
-            catch (Exception ex)
+
+            foreach (string messageElement in messageElements)
             {
-                MessageBox.Show("Error occurred while reading the groups.csv file: " + ex.Message);
+                AddMessageSelectorItem(messageElement);
             }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error occurred while reading the groups.csv file: " + ex.Message);
+        }
+
+            // Update the scroll bar height
+            scr_messageSelector.PreferredHeight = lvw_messageSelector.Items.Count * 20;
+            scr_messageSelector.ActualHeight = (lvw_messageSelector.Items.Count * 20) / 2;
+        }
+
 
         private string GetMessageElementFromUplinks(string refNumber)
         {
