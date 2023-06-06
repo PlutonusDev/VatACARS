@@ -11,7 +11,6 @@ namespace vatACARS
 {
     public partial class SetupWindow : BaseForm
     {
-        private bool closeDialog = false;
         string callsign = "";
 
         public SetupWindow()

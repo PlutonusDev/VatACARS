@@ -2,6 +2,7 @@
 using System.Data;
 using System.Security.AccessControl;
 using System.Windows.Forms;
+using vatACARS;
 using vatsys;
 
 namespace vatACARS
@@ -12,6 +13,7 @@ namespace vatACARS
         ListViewGroup groupStandby = new ListViewGroup("Standby");
         ListViewGroup groupAnswered = new ListViewGroup("Replied");
         Dictionary<ListViewItem, storedMessage> messages = new Dictionary<ListViewItem, storedMessage>();
+        private Tranceiver tranceiver;
 
         public EditorWindow()
         {
@@ -28,9 +30,23 @@ namespace vatACARS
             lvw_messages.Groups.Add(groupStandby);
             lvw_messages.Groups.Add(groupAnswered);
 
-            foreach(Tranceiver.incomingMessage msg in Tranceiver.RetrieveCPDLCMessages())
+            tranceiver = new Tranceiver();
+            InitializeMessages();
+        }
+
+        private async void InitializeMessages()
+        {
+            var messages = await tranceiver.RetrieveCPDLCMessages();
+            foreach (var message in messages)
             {
-                AddMessage(msg);
+                AddMessage(message);
+            }
+
+            // Disable buttons if there are no messages
+            if (lvw_messages.Items.Count == 0)
+            {
+                btn_standby.Enabled = false;
+                btn_reply.Enabled = false;
             }
         }
 
@@ -43,11 +59,13 @@ namespace vatACARS
             {
                 item.Group = groupNew;
                 item.BackColor = Colours.GetColour(Colours.Identities.Warning);
-            } else if(msgInfo.state == "STBY")
+            }
+            else if (msgInfo.state == "STBY")
             {
                 item.Group = groupStandby;
                 item.BackColor = Colours.GetColour(Colours.Identities.IdentFlash);
-            } else
+            }
+            else
             {
                 item.Group = groupAnswered;
             }
@@ -59,13 +77,14 @@ namespace vatACARS
             {
                 btn_reply.Enabled = false;
                 btn_standby.Enabled = false;
-            } else
+            }
+            else
             {
                 btn_reply.Enabled = true;
                 btn_standby.Enabled = true;
             }
 
-            if(lvw_messages.FocusedItem != null && lvw_messages.FocusedItem.Group == groupStandby)
+            if (lvw_messages.FocusedItem != null && lvw_messages.FocusedItem.Group == groupStandby)
             {
                 btn_standby.Enabled = false;
             }
