@@ -195,6 +195,7 @@
             this.btn_expect.TabIndex = 8;
             this.btn_expect.Text = "EXPECT";
             this.btn_expect.UseVisualStyleBackColor = true;
+            this.btn_expect.Click += new System.EventHandler(this.btn_expect_Click);
             // 
             // btn_surv
             // 
@@ -207,6 +208,7 @@
             this.btn_surv.TabIndex = 9;
             this.btn_surv.Text = "SURV";
             this.btn_surv.UseVisualStyleBackColor = true;
+            this.btn_surv.Click += new System.EventHandler(this.btn_surv_Click);
             // 
             // btn_enq
             // 
@@ -219,6 +221,7 @@
             this.btn_enq.TabIndex = 10;
             this.btn_enq.Text = "ENQ/TXT";
             this.btn_enq.UseVisualStyleBackColor = true;
+            this.btn_enq.Click += new System.EventHandler(this.btn_enq_Click);
             // 
             // btn_cross
             // 
@@ -244,6 +247,7 @@
             this.btn_transfr.TabIndex = 12;
             this.btn_transfr.Text = "TRANSFR";
             this.btn_transfr.UseVisualStyleBackColor = true;
+            this.btn_transfr.Click += new System.EventHandler(this.btn_transfr_Click);
             // 
             // btn_route
             // 
@@ -269,6 +273,7 @@
             this.btn_wx.TabIndex = 20;
             this.btn_wx.Text = "WX/OFF";
             this.btn_wx.UseVisualStyleBackColor = true;
+            this.btn_wx.Click += new System.EventHandler(this.btn_wx_Click);
             // 
             // btn_comm
             // 
@@ -307,6 +312,7 @@
             this.btn_cfm.TabIndex = 17;
             this.btn_cfm.Text = "CFM/RPT";
             this.btn_cfm.UseVisualStyleBackColor = true;
+            this.btn_cfm.Click += new System.EventHandler(this.btn_cfm_Click);
             // 
             // btn_misc
             // 
@@ -332,6 +338,7 @@
             this.btn_emerg.TabIndex = 15;
             this.btn_emerg.Text = "EMERG";
             this.btn_emerg.UseVisualStyleBackColor = true;
+            this.btn_emerg.Click += new System.EventHandler(this.btn_emerg_Click);
             // 
             // btn_blk
             // 
@@ -344,6 +351,7 @@
             this.btn_blk.TabIndex = 14;
             this.btn_blk.Text = "BLK/CND";
             this.btn_blk.UseVisualStyleBackColor = true;
+            this.btn_blk.Click += new System.EventHandler(this.btn_blk_Click);
             // 
             // btn_suspend
             // 
