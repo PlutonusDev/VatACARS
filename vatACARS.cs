@@ -2,12 +2,10 @@
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using vatACARS;
-using vatACARS.Properties;
 using vatsys;
 using vatsys.Plugin;
 
-namespace vStripsPlugin
+namespace vatACARS
 {
     [Export(typeof(IPlugin))]
     public class vatACARS : IPlugin
@@ -38,7 +36,7 @@ namespace vStripsPlugin
             setupWindowMenu.Item.Click += SetupWindowMenu_Click;
             MMI.AddCustomMenuItem(setupWindowMenu);
 
-            _ = Task.Run(() => tranciver.MakeCPDLCMessage("YSCB", "POLL", null));
+            _ = Task.Run(() => tranciver.RetrieveCPDLCMessages("YSCB", "POLL", null));
         }
         
         public void OnFDRUpdate(FDP2.FDR updated)

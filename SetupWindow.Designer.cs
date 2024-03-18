@@ -43,9 +43,9 @@ namespace vatACARS
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cancelButton.Location = new System.Drawing.Point(325, 114);
+            this.cancelButton.Location = new System.Drawing.Point(305, 114);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(120, 28);
+            this.cancelButton.Size = new System.Drawing.Size(140, 28);
             this.cancelButton.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.SubText = "";
             this.cancelButton.TabIndex = 1;
@@ -58,11 +58,11 @@ namespace vatACARS
             this.b_restartPlugin.Font = new System.Drawing.Font("Terminus (TTF)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.b_restartPlugin.Location = new System.Drawing.Point(12, 114);
             this.b_restartPlugin.Name = "b_restartPlugin";
-            this.b_restartPlugin.Size = new System.Drawing.Size(120, 28);
+            this.b_restartPlugin.Size = new System.Drawing.Size(140, 28);
             this.b_restartPlugin.SubFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_restartPlugin.SubText = "";
             this.b_restartPlugin.TabIndex = 9;
-            this.b_restartPlugin.Text = "Save";
+            this.b_restartPlugin.Text = "Save & Connect";
             this.b_restartPlugin.UseVisualStyleBackColor = true;
             // 
             // lbl_stationCode

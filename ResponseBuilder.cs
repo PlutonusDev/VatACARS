@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using vatsys;
 
@@ -34,7 +35,18 @@ namespace vatACARS
             scr_messageSelector.ForeColor = Colours.GetColour(Colours.Identities.WindowBackground);
             scr_messageSelector.BackColor = Colours.GetColour(Colours.Identities.WindowButtonSelected);
 
-            AddMessage(Tranceiver.RetrieveCPDLCMessages()[0]);
+            // Create an instance of the Tranceiver class
+            var tranceiver = new Tranceiver();
+
+            // Call RetrieveAllMessages asynchronously
+            Task.Run(async () =>
+            {
+                var newMessages = await tranceiver.RetrieveAllMessages();
+                foreach (var msg in newMessages)
+                {
+                    AddMessage(msg);
+                }
+            });
         }
 
         private void InitializeListViewGroups()
