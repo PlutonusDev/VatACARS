@@ -38,12 +38,12 @@ namespace vatACARS
                 // Display the new messages
                 foreach (var message in newMessages)
                 {
-                    MessageBox.Show($"Received message from {message.callsign}: {message.raw}", "Received from ACARS Server");
+                    //MessageBox.Show($"Received message from {message.callsign}: {message.raw}", "Received from ACARS Server");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating messages: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show($"Error updating messages: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -69,14 +69,7 @@ namespace vatACARS
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 // Log response content
-                MessageBox.Show("Response Content: " + responseContent);
-
-                // Check if response contains ok (GOOD!)
-                if (responseContent.Contains("ok"))
-                {
-                    // If not then BAD
-                    return new incomingMessage[0];
-                }
+                //MessageBox.Show("Response Content: " + responseContent);
 
                 // Deserialize JSON response to incomingMessage array
                 var messages = JsonConvert.DeserializeObject<incomingMessage[]>(responseContent);
@@ -118,13 +111,13 @@ namespace vatACARS
                 foreach (var message in messages)
                 {
                     // Process each message
-                    MessageBox.Show($"Callsign: {message.callsign}, Raw: {message.raw}, State: {message.state}");
+                    //MessageBox.Show($"Callsign: {message.callsign}, Raw: {message.raw}, State: {message.state}");
                 }
             }
             catch (Exception ex)
             {
                 // Handle exceptions
-                MessageBox.Show($"Error processing messages: {ex.Message}");
+                //MessageBox.Show($"Error processing messages: {ex.Message}");
             }
         }
 
