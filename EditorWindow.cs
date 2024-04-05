@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Security.AccessControl;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using vatsys;
 
@@ -28,13 +29,21 @@ namespace vatACARS
             lvw_messages.Groups.Add(groupStandby);
             lvw_messages.Groups.Add(groupAnswered);
 
-            foreach(Tranceiver.incomingMessage msg in Tranceiver.RetrieveCPDLCMessages())
-            {
-                AddMessage(msg);
-            }
-        }
+            // Create an instance of the Tranceiver class
+            var tranceiver = new Tranceiver();
 
-        public void AddMessage(Tranceiver.incomingMessage msgInfo)
+            // Call RetrieveAllMessages asynchronously
+            Task.Run(async () =>
+            {
+                var newMessages = await tranceiver.RetrieveAllMessages();
+                foreach (var msg in newMessages)
+                {
+                    AddMessage(msg);
+                }
+            });
+}
+
+            public void AddMessage(Tranceiver.incomingMessage msgInfo)
         {
             ListViewItem item = lvw_messages.Items.Add(string.Format("  {0}: {1}  ", msgInfo.callsign, msgInfo.raw));
             messages[item] = new storedMessage(item, msgInfo);
